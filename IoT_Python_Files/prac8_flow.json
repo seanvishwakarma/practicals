@@ -1,0 +1,86 @@
+[
+    {
+        "id": "prac8_tab",
+        "type": "tab",
+        "label": "Practical 8 - LED over IoT",
+        "disabled": false,
+        "info": "Practical 8 - Node RED: Connect LED to Internet of Things\nAim: Control an LED connected to GPIO17 using Node-RED inject nodes.\n\nWiring:\n  GPIO17 (Pin 11) → 220 Ohm resistor → LED long leg (+)\n  LED short leg (-) → GND (Pin 6)"
+    },
+    {
+        "id": "inject_on",
+        "type": "inject",
+        "z": "prac8_tab",
+        "name": "ON",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 150,
+        "y": 160,
+        "wires": [["gpio_out"]]
+    },
+    {
+        "id": "inject_off",
+        "type": "inject",
+        "z": "prac8_tab",
+        "name": "OFF",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "str",
+        "x": 150,
+        "y": 260,
+        "wires": [["gpio_out"]]
+    },
+    {
+        "id": "gpio_out",
+        "type": "rpi-gpio out",
+        "z": "prac8_tab",
+        "name": "LED GPIO17",
+        "pin": "11",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": false,
+        "x": 400,
+        "y": 210,
+        "wires": []
+    },
+    {
+        "id": "comment_wiring",
+        "type": "comment",
+        "z": "prac8_tab",
+        "name": "WIRING: GPIO17 (Pin 11) → 220Ω resistor → LED (+) | LED (-) → GND (Pin 6)",
+        "info": "",
+        "x": 310,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "comment_how",
+        "type": "comment",
+        "z": "prac8_tab",
+        "name": "HOW TO USE: Click the square button next to ON to turn LED on. Click OFF to turn it off.",
+        "info": "",
+        "x": 300,
+        "y": 360,
+        "wires": []
+    }
+]
